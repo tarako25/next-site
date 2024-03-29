@@ -31,7 +31,7 @@ const Header = () => {
       <div className="flex justify-center items-center w-full h-[80px]">
         <div className="flex justify-between items-center w-full">
           <div>タイトル</div>
-          <div>
+          <div className="hidden md:block">
             <NavigationMenu className="list-none">
               <NavigationMenuItem>
                 {MenuList.map((item, index) => (
