@@ -5,7 +5,7 @@ import Link from "next/link";
 const Article = () => {
   return (
     <>
-      <div className="flex flex-col items-center w-full">
+      <div className="flex flex-col items-center w-full mb-5">
         <div className="flex items-center w-full">
           <span className="w-[18px] h-[30px] bg-sky-400"></span>
           <h1 className="w-full my-3 p-3 font-bold text-xl">新着記事</h1>
@@ -18,7 +18,7 @@ const Article = () => {
           <div className="sm:w-[48%] w-[100%] h-[100px] mb-5 bg-white border border-slate-200 rounded-md"></div>
           <div className="sm:w-[48%] w-[100%] h-[100px] mb-5 bg-white border border-slate-200 rounded-md"></div>
         </div>
-        <Link href="articles" className={`${buttonVariants({ variant: "outline" })} my-2`}>
+        <Link href="articles" className={`${buttonVariants({ variant: "outline" })} mt-2`}>
           記事一覧
         </Link>
       </div>

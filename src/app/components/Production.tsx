@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 const Production = () => {
   return (
     <>
-      <div className="flex flex-col items-center w-full">
+      <div className="flex flex-col items-center w-full mb-5">
         <div className="flex items-center w-full">
           <span className="w-[18px] h-[30px] bg-sky-400"></span>
           <h1 className="w-full my-3 p-3 font-bold text-xl">最近の制作物</h1>
@@ -58,7 +58,7 @@ const Production = () => {
             </div>
           </div>
         </div>
-        <Link href="articles" className={`${buttonVariants({ variant: "outline" })} my-2`}>
+        <Link href="articles" className={`${buttonVariants({ variant: "outline" })} mt-2`}>
           制作物一覧
         </Link>
       </div>

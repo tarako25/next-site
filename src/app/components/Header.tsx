@@ -20,10 +20,6 @@ const Header = () => {
     {
       name: "制作物一覧",
       url: "/products"
-    },
-    {
-      name: "お問い合わせ",
-      url: "/contact"
     }
   ];
   return (

@@ -17,10 +17,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
+      {/* <body
         className={`${inter.className} flex justify-center flex-col items-center xl:bg-gray-100 md:bg-gray-200 sm:bg-gray-300 bg-gray-400`}
-      >
-        {/* <body className={`${inter.className} flex justify-center flex-col items-center bg-slate-100`}> */}
+      > */}
+      <body className={`${inter.className} flex justify-center flex-col items-center bg-slate-100`}>
         <Header />
         <div className="flex flex-col items-center xl:w-[1080px] w-[90%]">{children}</div>
       </body>
