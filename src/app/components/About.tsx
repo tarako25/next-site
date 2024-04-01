@@ -6,7 +6,7 @@ const About = () => {
     <>
       <div className="flex flex-col items-center w-full mb-5">
         <div className="flex items-center w-full">
-          <span className="w-[18px] h-[30px] bg-sky-400"></span>
+          <span className="w-[18px] h-[30px] base-color"></span>
           <h1 className="w-full my-3 p-3 font-bold text-xl">このサイトについて</h1>
         </div>
         <div className="flex flex-col justify-center items-center w-full py-5 bg-white rounded-md sm:flex-row sm:justify-evenly sm:items-center">
