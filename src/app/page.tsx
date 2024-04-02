@@ -1,15 +1,19 @@
 import Article from "./components/Article";
 import About from "./components/About";
-import Production from "./components/Production";
+import Product from "./components/Product";
 import Contact from "./components/Contact";
 
-export default function Home() {
+import React from "react";
+
+const HomePage = () => {
   return (
     <>
       <Article />
       <About />
-      <Production />
+      <Product />
       <Contact />
     </>
   );
-}
+};
+
+export default HomePage;

@@ -1,14 +1,21 @@
 import React from "react";
-import { buttonVariants } from "@/components/ui/button";
-import Link from "next/link";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious
+} from "@/components/ui/pagination";
 
-const Article = () => {
+const Articles = () => {
   return (
     <>
-      <div className="flex flex-col items-center w-full mb-5">
+      <div className="flex flex-col items-center w-full">
         <div className="flex items-center w-full">
           <span className="w-[18px] h-[30px] base-color"></span>
-          <h1 className="w-full my-3 p-3 font-bold text-xl">新着記事</h1>
+          <h1 className="w-full my-3 p-3 font-bold text-xl">記事一覧</h1>
         </div>
         <div className="flex w-full justify-between flex-wrap">
           <div className="flex justify-center items-center md:w-[48%] w-[100%] h-[100px] mb-5 px-1 bg-white border border-slate-200 rounded-md">
@@ -42,12 +49,33 @@ const Article = () => {
             </div>
           </div>
         </div>
-        <Link href="articles" className={`${buttonVariants({ variant: "outline" })} mt-2`}>
-          記事一覧
-        </Link>
       </div>
+      <Pagination className="mb-5">
+        <PaginationContent>
+          <PaginationItem>
+            <PaginationPrevious href="#" />
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationLink href="#">1</PaginationLink>
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationLink href="#" isActive>
+              2
+            </PaginationLink>
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationLink href="#">3</PaginationLink>
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationEllipsis />
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationNext href="#" />
+          </PaginationItem>
+        </PaginationContent>
+      </Pagination>
     </>
   );
 };
 
-export default Article;
+export default Articles;

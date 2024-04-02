@@ -10,7 +10,7 @@ const About = () => {
           <h1 className="w-full my-3 p-3 font-bold text-xl">このサイトについて</h1>
         </div>
         <div className="flex flex-col justify-center items-center w-full py-5 bg-white rounded-md sm:flex-row sm:justify-evenly sm:items-center">
-          <div className="flex justify-center w-[30%]">
+          <div className="flex justify-center w-[50%] sm:w-[30%]">
             <div className="w-[150px] h-[150px] bg-slate-200 rounded-full"></div>
           </div>
           <div className="flex flex-col items-center sm:items-start w-[75%] sm:w-[60%]">
