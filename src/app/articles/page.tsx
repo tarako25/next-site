@@ -1,12 +1,11 @@
-import React from "react";
-import Articles from "../components/Articles";
+import Articles from '../components/Articles'
 
 const ArticlesPage = () => {
   return (
     <>
       <Articles />
     </>
-  );
-};
+  )
+}
 
-export default ArticlesPage;
+export default ArticlesPage
