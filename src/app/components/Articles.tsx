@@ -1,3 +1,4 @@
+'use client'
 import {
   Pagination,
   PaginationContent,
@@ -7,8 +8,19 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from '@/components/ui/pagination'
+import { useEffect } from 'react'
 
 const Articles = () => {
+  useEffect(() => {
+    getZennArticles()
+  }, [])
+  const getZennArticles = async () => {
+    const res = await fetch(
+      'https://zenn.dev/api/articles?username=tarako25&order=latest',
+    )
+    const data = await res.json()
+    console.log(res)
+  }
   return (
     <>
       <div className="flex flex-col items-center w-full">
