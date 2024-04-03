@@ -1,6 +1,5 @@
-import React from "react";
-import { buttonVariants } from "@/components/ui/button";
-import Link from "next/link";
+import { buttonVariants } from '@/components/ui/button'
+import Link from 'next/link'
 
 const Article = () => {
   return (
@@ -14,40 +13,48 @@ const Article = () => {
           <div className="flex justify-center items-center md:w-[48%] w-[100%] h-[100px] mb-5 px-1 bg-white border border-slate-200 rounded-md">
             <div className="min-w-[90px] h-[90px] bg-slate-300 rounded"></div>
             <div className="h-[90px] px-2 py-1">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus, cumque.
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Possimus, cumque.
             </div>
           </div>
           <div className="flex justify-center items-center md:w-[48%] w-[100%] h-[100px] mb-5 px-1 bg-white border border-slate-200 rounded-md">
             <div className="min-w-[90px] h-[90px] bg-slate-300 rounded"></div>
             <div className="h-[90px] px-2 py-1">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus, cumque.
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Possimus, cumque.
             </div>
           </div>
           <div className="flex justify-center items-center md:w-[48%] w-[100%] h-[100px] mb-5 px-1 bg-white border border-slate-200 rounded-md">
             <div className="min-w-[90px] h-[90px] bg-slate-300 rounded"></div>
             <div className="h-[90px] px-2 py-1">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus, cumque.
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Possimus, cumque.
             </div>
           </div>
           <div className="flex justify-center items-center md:w-[48%] w-[100%] h-[100px] mb-5 px-1 bg-white border border-slate-200 rounded-md">
             <div className="min-w-[90px] h-[90px] bg-slate-300 rounded"></div>
             <div className="h-[90px] px-2 py-1">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus, cumque.
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Possimus, cumque.
             </div>
           </div>
           <div className="flex justify-center items-center md:w-[48%] w-[100%] h-[100px] mb-5 px-1 bg-white border border-slate-200 rounded-md">
             <div className="min-w-[90px] h-[90px] bg-slate-300 rounded"></div>
             <div className="h-[90px] px-2 py-1">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus, cumque.
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Possimus, cumque.
             </div>
           </div>
         </div>
-        <Link href="articles" className={`${buttonVariants({ variant: "outline" })} mt-2`}>
+        <Link
+          href="articles"
+          className={`${buttonVariants({ variant: 'outline' })} mt-2`}
+        >
           記事一覧
         </Link>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Article;
+export default Article

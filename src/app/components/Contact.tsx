@@ -1,9 +1,8 @@
-import React from "react";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { buttonVariants } from "@/components/ui/button";
-import Link from "next/link";
+import { buttonVariants } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Textarea } from '@/components/ui/textarea'
+import Link from 'next/link'
 
 const Contact = () => {
   return (
@@ -28,17 +27,25 @@ const Contact = () => {
             <Label htmlFor="message" className="p-2">
               問い合わせ内容(必須)
             </Label>
-            <Textarea placeholder="" id="message" required className="my-3 bg-slate-100" />
+            <Textarea
+              placeholder=""
+              id="message"
+              required
+              className="my-3 bg-slate-100"
+            />
           </div>
           <div className="w-[90%] flex justify-end">
-            <Link href="articles" className={`${buttonVariants({ variant: "outline" })} mt-2 px-7`}>
+            <Link
+              href="articles"
+              className={`${buttonVariants({ variant: 'outline' })} mt-2 px-7`}
+            >
               送信
             </Link>
           </div>
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact

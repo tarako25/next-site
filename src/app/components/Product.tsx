@@ -1,7 +1,6 @@
-import React from "react";
-import { buttonVariants } from "@/components/ui/button";
-import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from '@/components/ui/badge'
+import { buttonVariants } from '@/components/ui/button'
+import Link from 'next/link'
 
 const Product = () => {
   return (
@@ -58,12 +57,15 @@ const Product = () => {
             </div>
           </div>
         </div>
-        <Link href="products" className={`${buttonVariants({ variant: "outline" })} mt-2`}>
+        <Link
+          href="products"
+          className={`${buttonVariants({ variant: 'outline' })} mt-2`}
+        >
           制作物一覧
         </Link>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Product;
+export default Product

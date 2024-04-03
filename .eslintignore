@@ -1,2 +1,13 @@
-public/
 node_modules/
+.next/
+build/
+dist/
+public/
+components.json
+next-env.d.ts
+next.config.mjs
+package-lock.json
+package.json
+postcss.config
+tailwind.config.ts
+tsconfig.json

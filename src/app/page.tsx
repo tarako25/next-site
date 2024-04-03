@@ -1,9 +1,7 @@
-import Article from "./components/Article";
-import About from "./components/About";
-import Product from "./components/Product";
-import Contact from "./components/Contact";
-
-import React from "react";
+import About from './components/About'
+import Article from './components/Article'
+import Contact from './components/Contact'
+import Product from './components/Product'
 
 const HomePage = () => {
   return (
@@ -13,7 +11,7 @@ const HomePage = () => {
       <Product />
       <Contact />
     </>
-  );
-};
+  )
+}
 
-export default HomePage;
+export default HomePage

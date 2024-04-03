@@ -1,5 +1,4 @@
-import React from "react";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from '@/components/ui/badge'
 import {
   Pagination,
   PaginationContent,
@@ -7,8 +6,8 @@ import {
   PaginationItem,
   PaginationLink,
   PaginationNext,
-  PaginationPrevious
-} from "@/components/ui/pagination";
+  PaginationPrevious,
+} from '@/components/ui/pagination'
 
 const Products = () => {
   return (
@@ -91,7 +90,7 @@ const Products = () => {
         </PaginationContent>
       </Pagination>
     </>
-  );
-};
+  )
+}
 
-export default Products;
+export default Products
