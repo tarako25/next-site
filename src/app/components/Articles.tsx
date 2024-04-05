@@ -17,10 +17,10 @@ const Articles = () => {
     getZennArticles()
   }, [])
   const getZennArticles = async () => {
-    const res = await fetch('api/getZennArticle')
+    const res = await fetch('api/getZennArticles')
     const data = await res.json()
     setArticles(data.articles)
-    console.log(data.articles)
+    console.log(data)
   }
   return (
     <>
@@ -39,8 +39,17 @@ const Articles = () => {
               <div className="min-w-[90px] h-[90px] bg-slate-100 rounded flex justify-center items-center">
                 <div className="text-5xl">{article.emoji}</div>
               </div>
-              <div className="h-[90px] px-2 py-1 font-bold">
-                {article.title}
+              <div className="h-[90px] px-2 font-bold">
+                <div className="text-xs py-1">
+                  {new Intl.DateTimeFormat('ja-JP', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                  }).format(new Date(article.published_at))}
+                </div>
+                <div className=" text-sm overflow-hidden text-ellipsis line-clamp-3">
+                  {article.title}
+                </div>
               </div>
             </Link>
           ))}
