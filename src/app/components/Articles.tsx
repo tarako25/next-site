@@ -15,11 +15,9 @@ const Articles = () => {
     getZennArticles()
   }, [])
   const getZennArticles = async () => {
-    const res = await fetch(
-      'https://zenn.dev/api/articles?username=tarako25&order=latest',
-    )
+    const res = await fetch('api/getZennArticle')
     const data = await res.json()
-    console.log(res)
+    console.log(data)
   }
   return (
     <>
