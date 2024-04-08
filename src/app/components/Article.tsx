@@ -1,5 +1,6 @@
 'use client'
 import { buttonVariants } from '@/components/ui/button'
+import { ArticleType } from '@/types/ArticleType'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
@@ -21,7 +22,7 @@ const Article = () => {
           <h1 className="w-full my-3 p-3 font-bold text-xl">新着記事</h1>
         </div>
         <div className="flex w-full justify-between flex-wrap">
-          {articles.slice(0, 6).map((article) => (
+          {articles.slice(0, 6).map((article: ArticleType) => (
             <Link
               href={`https://zenn.dev/${article.path}`}
               key={article.id}

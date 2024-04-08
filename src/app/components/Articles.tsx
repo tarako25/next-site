@@ -8,6 +8,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from '@/components/ui/pagination'
+import { ArticleType } from '@/types/ArticleType'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
@@ -42,7 +43,7 @@ const Articles = () => {
           <h1 className="w-full my-3 p-3 font-bold text-xl">記事一覧</h1>
         </div>
         <div className="flex w-full justify-between flex-wrap">
-          {articles.slice(0, 48).map((article) => (
+          {articles.slice(0, 48).map((article: ArticleType) => (
             <Link
               href={`https://zenn.dev/${article.path}`}
               key={article.id}
