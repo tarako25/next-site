@@ -1,6 +1,16 @@
 import { Badge } from '@/components/ui/badge'
+import Image from 'next/image'
+import adminAvatar from '../../../public/avatar.jpg'
 
 const About = () => {
+  const BadgeItem = [
+    'Next.js',
+    'Java',
+    'Kotolin',
+    'NextAuth',
+    'Supabase',
+    'Prisma',
+  ]
   return (
     <>
       <div className="flex flex-col items-center w-full mb-5">
@@ -12,7 +22,11 @@ const About = () => {
         </div>
         <div className="flex flex-col justify-center items-center w-full py-5 bg-white rounded-md sm:flex-row sm:justify-evenly sm:items-center">
           <div className="flex justify-center w-[50%] sm:w-[30%]">
-            <div className="w-[150px] h-[150px] bg-slate-200 rounded-full"></div>
+            <Image
+              alt="サイト管理者のアイコン"
+              src={adminAvatar}
+              className="w-[165px] h-[165px] rounded-full"
+            />
           </div>
           <div className="flex flex-col items-center sm:items-start w-[75%] sm:w-[60%]">
             <div className="py-3 text-center sm:text-left">
@@ -26,24 +40,11 @@ const About = () => {
             <h2 className="font-bold">注目しているスタック</h2>
             <hr className="my-1 py-1" />
             <div className="flex flex-wrap">
-              <Badge variant="outline" className="mr-2 mb-2 text-sm">
-                Next.js
-              </Badge>
-              <Badge variant="outline" className="mr-2 mb-2 text-sm">
-                Java
-              </Badge>
-              <Badge variant="outline" className="mr-2 mb-2 text-sm">
-                Kotolin
-              </Badge>
-              <Badge variant="outline" className="mr-2 mb-2 text-sm">
-                NextAuth
-              </Badge>
-              <Badge variant="outline" className="mr-2 mb-2 text-sm">
-                Supabase
-              </Badge>
-              <Badge variant="outline" className="mr-2 mb-2 text-sm">
-                Prisma
-              </Badge>
+              {BadgeItem.map((badge) => (
+                <Badge variant="outline" className="mr-2 mb-2 text-sm">
+                  {badge}
+                </Badge>
+              ))}
             </div>
           </div>
         </div>
