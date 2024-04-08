@@ -13,15 +13,26 @@ import { useEffect, useState } from 'react'
 
 const Articles = () => {
   const [articles, setArticles] = useState([])
+  const [currentPage, serCurrentPage] = useState(1)
+  const [totalPages, setTotalPages] = useState(5)
+
   useEffect(() => {
-    getZennArticles()
-  }, [])
-  const getZennArticles = async () => {
-    const res = await fetch('api/getZennArticles')
+    getZennArticles(currentPage)
+  }, [currentPage])
+  const getZennArticles = async (currentPage: number) => {
+    const res = await fetch(`api/getZennArticles?page=${currentPage}`)
     const data = await res.json()
     setArticles(data.articles)
-    console.log(data)
   }
+  const prevPage = (value: number) => {
+    if (currentPage == 1) return
+    serCurrentPage(currentPage - value)
+  }
+  const nextPage = (value: number) => {
+    if (currentPage == totalPages) return
+    serCurrentPage(currentPage + value)
+  }
+
   return (
     <>
       <div className="flex flex-col items-center w-full">
@@ -58,24 +69,72 @@ const Articles = () => {
       <Pagination className="mb-5">
         <PaginationContent>
           <PaginationItem>
-            <PaginationPrevious href="#" />
+            <PaginationPrevious
+              className="cursor-pointer"
+              onClick={() => prevPage(1)}
+            />
           </PaginationItem>
+          {currentPage == totalPages ? (
+            <PaginationItem>
+              <PaginationLink
+                className="cursor-pointer"
+                onClick={() => prevPage(2)}
+              >
+                {currentPage - 2}
+              </PaginationLink>
+            </PaginationItem>
+          ) : (
+            <></>
+          )}
+          {currentPage == 1 ? (
+            <></>
+          ) : (
+            <PaginationItem>
+              <PaginationLink
+                className="cursor-pointer"
+                onClick={() => prevPage(1)}
+              >
+                {currentPage - 1}
+              </PaginationLink>
+            </PaginationItem>
+          )}
           <PaginationItem>
-            <PaginationLink href="#">1</PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink href="#" isActive>
-              2
+            <PaginationLink className="cursor-pointer" isActive>
+              {currentPage}
             </PaginationLink>
           </PaginationItem>
+          {currentPage == totalPages ? (
+            <></>
+          ) : (
+            <PaginationItem>
+              <PaginationLink
+                className="cursor-pointer"
+                onClick={() => nextPage(1)}
+              >
+                {currentPage + 1}
+              </PaginationLink>
+            </PaginationItem>
+          )}
+          {currentPage == 1 ? (
+            <PaginationItem>
+              <PaginationLink
+                className="cursor-pointer"
+                onClick={() => nextPage(2)}
+              >
+                {currentPage + 2}
+              </PaginationLink>
+            </PaginationItem>
+          ) : (
+            <></>
+          )}
           <PaginationItem>
-            <PaginationLink href="#">3</PaginationLink>
+            {currentPage == totalPages ? <></> : <PaginationEllipsis />}
           </PaginationItem>
           <PaginationItem>
-            <PaginationEllipsis />
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationNext href="#" />
+            <PaginationNext
+              className="cursor-pointer"
+              onClick={() => nextPage(1)}
+            />
           </PaginationItem>
         </PaginationContent>
       </Pagination>
