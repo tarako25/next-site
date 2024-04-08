@@ -2,21 +2,35 @@ import { NextRequest, NextResponse } from 'next/server'
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url)
-  const page = searchParams.get('page')
+  let page = Number(searchParams.get('page')) || 1
+  let articles: any[] = [] // 明示的に any[] 型を指定
+  const username = 'catnose99'
+  let totalCount = 0
 
-  if (page) {
-    const res = await fetch(
-      `https://zenn.dev/api/articles?username=catnose99&order=latest&page=${page}`,
-      { cache: 'no-store' },
-    )
+  const getZennArticles = async (url: string) => {
+    const res = await fetch(url, { cache: 'no-store' })
     const data = await res.json()
-    return NextResponse.json(data)
-  } else {
-    const res = await fetch(
-      `https://zenn.dev/api/articles?username=catnose99&order=latest`,
-      { cache: 'no-store' },
-    )
-    const data = await res.json()
-    return NextResponse.json(data)
+    articles = articles.concat(data.articles)
+    if (data.next_page) {
+      await getZennArticles(
+        `https://zenn.dev/api/articles?username=${username}&order=latest&page=${data.next_page}`,
+      )
+    }
   }
+
+  await getZennArticles(
+    `https://zenn.dev/api/articles?username=${username}&order=latest&page=${page}`,
+  )
+
+  // 記事の総数を取得
+  const count = articles.length
+
+  if (page > 1) {
+    totalCount = count + 48 * (page - 1)
+  } else {
+    totalCount = count
+  }
+
+  // 記事の総数を含むレスポンスを返す
+  return NextResponse.json({ totalCount, articles })
 }

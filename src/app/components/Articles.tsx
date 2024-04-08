@@ -13,8 +13,8 @@ import { useEffect, useState } from 'react'
 
 const Articles = () => {
   const [articles, setArticles] = useState([])
-  const [currentPage, serCurrentPage] = useState(1)
-  const [totalPages, setTotalPages] = useState(5)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [totalPages, setTotalPages] = useState(1)
 
   useEffect(() => {
     getZennArticles(currentPage)
@@ -22,15 +22,16 @@ const Articles = () => {
   const getZennArticles = async (currentPage: number) => {
     const res = await fetch(`api/getZennArticles?page=${currentPage}`)
     const data = await res.json()
+    setTotalPages(Math.ceil(data.totalCount / 48))
     setArticles(data.articles)
   }
   const prevPage = (value: number) => {
     if (currentPage == 1) return
-    serCurrentPage(currentPage - value)
+    setCurrentPage(currentPage - value)
   }
   const nextPage = (value: number) => {
     if (currentPage == totalPages) return
-    serCurrentPage(currentPage + value)
+    setCurrentPage(currentPage + value)
   }
 
   return (
@@ -41,7 +42,7 @@ const Articles = () => {
           <h1 className="w-full my-3 p-3 font-bold text-xl">記事一覧</h1>
         </div>
         <div className="flex w-full justify-between flex-wrap">
-          {articles.map((article) => (
+          {articles.slice(0, 48).map((article) => (
             <Link
               href={`https://zenn.dev/${article.path}`}
               key={article.id}
@@ -74,7 +75,7 @@ const Articles = () => {
               onClick={() => prevPage(1)}
             />
           </PaginationItem>
-          {currentPage == totalPages ? (
+          {currentPage == totalPages && totalPages > 2 ? (
             <PaginationItem>
               <PaginationLink
                 className="cursor-pointer"
@@ -115,7 +116,7 @@ const Articles = () => {
               </PaginationLink>
             </PaginationItem>
           )}
-          {currentPage == 1 ? (
+          {currentPage == 1 && totalPages > 2 ? (
             <PaginationItem>
               <PaginationLink
                 className="cursor-pointer"
@@ -128,7 +129,11 @@ const Articles = () => {
             <></>
           )}
           <PaginationItem>
-            {currentPage == totalPages ? <></> : <PaginationEllipsis />}
+            {currentPage == totalPages || totalPages < 3 ? (
+              <></>
+            ) : (
+              <PaginationEllipsis />
+            )}
           </PaginationItem>
           <PaginationItem>
             <PaginationNext
