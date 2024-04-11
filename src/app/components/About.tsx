@@ -4,7 +4,6 @@ import { Badge } from '@/components/ui/badge'
 import { AboutType } from '@/types/AboutType'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
-import adminAvatar from '../../../public/avatar.jpg'
 
 const About = () => {
   const [aboutData, setAboutData] = useState<AboutType>()
@@ -34,23 +33,31 @@ const About = () => {
         </div>
         <div className="flex flex-col justify-center items-center w-full py-5 bg-white rounded-md sm:flex-row sm:justify-evenly sm:items-start">
           <div className="flex justify-center py-5 h-full w-[50%] sm:w-[30%]">
-            <Image
-              alt="サイト管理者のアイコン"
-              src={aboutData?.icon.url || adminAvatar}
-              className="w-[165px] h-[165px] rounded-full"
-              width={165}
-              height={165}
-            />
+            {aboutData?.icon.url ? (
+              <Image
+                alt="サイト管理者のアイコン"
+                src={aboutData.icon.url}
+                className="w-[165px] h-[165px] rounded-full"
+                width={165}
+                height={165}
+              />
+            ) : (
+              <LoadingText
+                width="w-[165px]"
+                height="h-[165px]"
+                rounded="rounded-full"
+              />
+            )}
           </div>
           <div className="flex flex-col items-center sm:items-start w-[75%] sm:w-[60%]">
             {aboutData?.introduction ? (
-              <div className="my-3 text-center sm:text-left">
+              <div className="my-3 text-sm text-slate-500 text-center sm:text-left leading-7">
                 {aboutData.introduction}
               </div>
             ) : (
               <LoadingText
                 margin="my-3"
-                height="h-[70px]"
+                height="h-[100px]"
                 rounded="rounded-md"
               />
             )}
