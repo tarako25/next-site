@@ -1,9 +1,9 @@
 import Articles from '../components/Articles'
 
-const ArticlesPage = () => {
+const ArticlesPage = ({ searchParams }: { searchParams: { page: number } }) => {
   return (
     <>
-      <Articles />
+      <Articles page={searchParams.page || 1} />
     </>
   )
 }
